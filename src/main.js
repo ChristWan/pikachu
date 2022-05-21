@@ -13,7 +13,8 @@ const player = {
     '#btnStart': 'start',
     '#btnSlow': 'slow',
     '#btnNormal': 'normal',
-    '#btnFast': 'fast'
+    '#btnFast': 'fast',
+    '#btnRestart': 'restart'
   },
   bindEvents() {
     for (let key in player.events) {
@@ -62,6 +63,12 @@ const player = {
   fast() {
     player.clear()
     player.time = 10
+    player.play()
+  },
+  restart() {
+    player.clear()
+    player.n = 0
+    player.time = 100
     player.play()
   }
 }
