@@ -3,7 +3,7 @@ import cssCode from './cssCode'
 const player = {
   n: 0,
   id: undefined,
-  time: 100,
+  time: 60,
   ui: {
     code: document.querySelector('.code'),
     cssCode: document.querySelector('#cssCode')
@@ -52,12 +52,12 @@ const player = {
   },
   slow() {
     player.clear()
-    player.time = 300
+    player.time = 200
     player.play()
   },
   normal() {
     player.clear()
-    player.time = 100
+    player.time = 60
     player.play()
   },
   fast() {
@@ -68,7 +68,7 @@ const player = {
   restart() {
     player.clear()
     player.n = 0
-    player.time = 100
+    player.time = 60
     player.play()
   }
 }
