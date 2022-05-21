@@ -40,33 +40,30 @@ const player = {
     player.ui.code.scrollTop = player.ui.code.scrollHeight
   }, player.time)
   },
-  clear() {
+  pause() {
     window.clearInterval(player.id)
   },
-  pause() {
-    player.clear()
-  },
   start() {
-    player.clear()
+    player.pause()
     player.play()
   },
   slow() {
-    player.clear()
+    player.pause()
     player.time = 200
     player.play()
   },
   normal() {
-    player.clear()
+    player.pause()
     player.time = 60
     player.play()
   },
   fast() {
-    player.clear()
+    player.pause()
     player.time = 10
     player.play()
   },
   restart() {
-    player.clear()
+    player.pause()
     player.n = 0
     player.time = 60
     player.play()
