@@ -1,0 +1,14 @@
+{
+  "scripts": {
+    "build": "rm -rf dist && parcel build src/index.html --public-url ./"
+  },
+  "name": "pikachu",
+  "version": "1.0.0",
+  "source": "src/index.html",
+  "repository": "git@github.com:ChristWan/pikachu.git",
+  "author": "christwan <christyim21@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "jquery": "^3.6.0"
+  }
+}

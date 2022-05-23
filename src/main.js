@@ -1,12 +1,13 @@
 import cssCode from './cssCode'
+import $ from 'jquery'
 
 const player = {
   n: 0,
   id: undefined,
   time: 60,
   ui: {
-    code: document.querySelector('.code'),
-    cssCode: document.querySelector('#cssCode')
+    $code: $('.code'),
+    $cssCode: $('#cssCode')
   },
   events: {
     '#btnPause': 'pause',
@@ -19,8 +20,7 @@ const player = {
   bindEvents() {
     for (let key in player.events) {
       if (player.events.hasOwnProperty(key)) {
-        const value = player.events[key]
-        document.querySelector(key).onclick = player[value]
+        $(key).on('click', player[player.events[key]])
       }
     }
   },
@@ -32,16 +32,16 @@ const player = {
   player.id = setInterval(() => {
     player.n += 1
     if (player.n > cssCode.length) {
-      window.clearInterval(player.id)
+      clearInterval(player.id)
       return
     }
-    player.ui.code.innerText = cssCode.substring(0, player.n)
-    player.ui.cssCode.innerHTML = cssCode.substring(0, player.n)
-    player.ui.code.scrollTop = player.ui.code.scrollHeight
+    player.ui.$code.text(cssCode.substring(0, player.n))
+    player.ui.$cssCode.html(cssCode.substring(0, player.n))
+    player.ui.$code.scrollTop(player.ui.$code[0].scrollHeight)
   }, player.time)
   },
   pause() {
-    window.clearInterval(player.id)
+    clearInterval(player.id)
   },
   start() {
     player.pause()
